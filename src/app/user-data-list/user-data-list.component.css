@@ -1,0 +1,16 @@
+table {
+  width: 90%;
+}
+
+.data-list {
+  display:flex;
+  justify-content:center;
+  margin-top: 16px;
+}
+
+.create-button {
+  margin-top: 16px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+}
