@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UserDataService } from '../user-data.service';
 
 
 @Component({
@@ -9,15 +11,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class UserDataListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'template', 'repeat', 'isActivate', 'date'];
+  displayedColumns: string[] = ['name', 'template', 'repeat', 'isActivate', 'startDate'];
   dataSource = [
-  {name: 'xin', template: 'Hydrogen', repeat: 'csaa', isActivate: true, date: Date.now().toString()},
+  {name: 'xin', template: 'Hydrogen', repeat: 'csaa', isActivate: true, startDate: Date.now().toString()},
 ];
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  usersData$: Observable<any[]>;
+
+  constructor(private router: Router, private route: ActivatedRoute, private userDataService: UserDataService) {
   }
 
   ngOnInit() {
+    this.usersData$ = this.userDataService.listUserData();
+    this.usersData$.subscribe(console.log);
   }
 
   create() {
@@ -32,5 +38,5 @@ export interface PeriodicElement {
   template: string;
   repeat: string;
   isActivate: boolean;
-  date: string;
+  startDate: string;
 }

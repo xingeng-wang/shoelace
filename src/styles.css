@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+.snackbar-error {
+  content: "ERROR: ";
+  color: #FF0000;
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.snackbar-success {
+  content: "SUCCESS: ";
+  color: #00FF00;
+  font-weight: bold;
+  padding-right: 5px;
+}

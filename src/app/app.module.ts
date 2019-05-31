@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { InputUserDataFormComponent } from './input-user-data-form/input-user-data-form.component';
+import { InputUserDataFormComponent } from './user-data/input-user-data-form/input-user-data-form.component';
 import {
   MatFormFieldModule,
   MatNativeDateModule,
@@ -17,8 +17,10 @@ import {
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserDataListComponent } from './user-data-list/user-data-list.component';
+import { UserDataListComponent } from './user-data/user-data-list/user-data-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { UserDataService } from './user-data/user-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export const routes: Routes = [
   {path: '', component: UserDataListComponent},
@@ -46,9 +48,10 @@ export const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
